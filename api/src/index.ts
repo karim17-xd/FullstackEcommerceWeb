@@ -1,7 +1,10 @@
-import express from "express";
+import express, { json, urlencoded } from "express";
+
 import router from "./routes/products/index.js";
 
 const app = express();
+app.use(urlencoded({ extended: false }));
+app.use(json());
 const PORT = 3000;
 
 app.use("/products", router);
